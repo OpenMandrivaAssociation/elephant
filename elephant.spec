@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:		elephant
-Version:	1.0.7
+Version:	1.1.0
 Release:	1
 Source0:	https://github.com/abenz1267/elephant/archive/v%{version}/%{name}-v%{version}.tar.gz
 Source1:	%{name}-%{version}-vendor.tar.gz
