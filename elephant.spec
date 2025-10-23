@@ -11,7 +11,7 @@ License:	GPL-3.0
 Group:		Window Manager/Utility
 
 BuildRequires:	go
-BuildRequires:  pkgconfig(wayland)
+BuildRequires:  pkgconfig(wayland-client)
 
 Requires:	fd-find
 Requires:	qalc
