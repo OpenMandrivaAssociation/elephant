@@ -1,8 +1,7 @@
 %global debug_package %{nil}
 
 Name:		elephant
-# Patch has version change to 1.3.2.
-Version:	2.1.0
+Version:	2.6.1
 Release:	1
 Source0:	https://github.com/abenz1267/elephant/archive/v%{version}/%{name}-v%{version}.tar.gz
 Source1:	%{name}-%{version}-vendor.tar.gz
@@ -29,7 +28,7 @@ cd cmd/elephant
 go build --buildmode=pie
 cd %{builddir}/%{name}-%{version}
 
-for provider in calc clipboard desktopapplications files providerlist runner symbols todo unicode websearch; do
+for provider in bluetooth calc clipboard desktopapplications files menus nirisessions providerlist runner snippets symbols todo unicode websearch windows; do
     cd internal/providers/$provider
     go build -buildmode=plugin
     cd %{builddir}/%{name}-%{version}
@@ -38,9 +37,8 @@ done
 %install
 install -Dm 755 cmd/elephant/elephant %{buildroot}%{_bindir}/%{name}
 
-for provider in calc clipboard desktopapplications files providerlist runner symbols todo unicode websearch; do
+for provider in bluetooth calc clipboard desktopapplications files menus nirisessions providerlist runner snippets symbols todo unicode websearch windows; do
 install -Dm 755 internal/providers/$provider/$provider.so %{buildroot}%{_sysconfdir}/xdg/elephant/providers/$provider.so
-
 done
 
 %files
