@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:		elephant
-Version:	2.13.2
+Version:	2.15.0
 Release:	1
 Source0:	https://github.com/abenz1267/elephant/archive/v%{version}/%{name}-v%{version}.tar.gz
 Source1:	%{name}-%{version}-vendor.tar.gz
@@ -29,7 +29,7 @@ cd cmd/elephant
 go build --buildmode=pie
 cd %{builddir}/%{name}-%{version}
 
-for provider in bluetooth calc clipboard desktopapplications files menus nirisessions providerlist runner snippets symbols todo unicode websearch windows; do
+for provider in 1password bluetooth bookmarks calc clipboard desktopapplications files menus nirisessions providerlist runner snippets symbols todo unicode websearch windows; do
     cd internal/providers/$provider
     go build -buildmode=plugin
     cd %{builddir}/%{name}-%{version}
